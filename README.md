@@ -1,4 +1,7 @@
-# zh
+# 本书介绍
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+这本书用来记录我工作和学习过程中的积累的知识
+希望自己的技术不断提升
+
+深圳·飞亚达大厦 2017.4.10
 
