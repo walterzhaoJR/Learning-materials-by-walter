@@ -297,5 +297,9 @@
 
         # /usr/local/mysql/bin/mysqlbinlog --start-datetime="2013-11-29 13:18:54" --stop-datetime="2013-11-29 13:21:53" --database=zyyshop /usr/local/mysql/data/mysql-bin.000021 | /usr/local/mysql/bin/mysql -uroot -p123456 -v zyyshop
 
-      总结：所谓恢复，就是让mysql将保存在binlog日志中指定段落区间的sql语句逐个重新执行一次而已。
-```
+      总结：所谓恢复，就是让mysql将保存在binlog日志中指定段落区间的sql语句逐个重新执行一次 
+
+2017.4.17
+
+#资料引用：
+* http://www.cnblogs.com/martinzhang/p/3454358.html
