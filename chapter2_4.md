@@ -6,16 +6,4 @@
   * ROW：它将每一行变更都记录在日志中，而不是记录SQL。例如：update table_a set name = 'abc'; 如果是STATEMENT日志只会记录一行SQL文本；但是如果是ROW，会对全表更新进行记录，那么如果这个表有1w行，那么ROW就会记录1W条的记录。日志量大大增加，优点就是记录每一行的变化，不会出现无法复制的情况，但是日志量很大，对I/O影响大。
   * MIXED：这种最新的默认的日志格式，混合来前面两种日志的优点，默认的情况下会时候STATEMENT格式的日志，但是在特殊的情况下是会使用ROW这种个格式的日志。
 
-
- %% Subgraph example
- graph TB
-         subgraph one
-         a1-->a2
-         end
-         subgraph two
-         b1-->b2
-         end
-         subgraph three
-         c1-->c2
-         end
-         c1-->a2
+        
