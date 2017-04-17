@@ -8,5 +8,7 @@
   * [2.2 数据库分表、分库](chapter2_2.md)
   * [2.3 分布式事务](chapter2_3.md)
   * [2.4 Binlog](chapter2_4.md)
+  * [2.5 Mysql分表，分区的区别和联系](chapter2_5.md)
+  * [2.6 Sql审计](chapter2_6.md)
 * [第三章 编译、库相关知识](chapter3.md)
 
