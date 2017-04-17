@@ -49,7 +49,7 @@
              thread_id=11    线程号
      ```
     * (2)上面这种办法读取出binlog日志的全文内容较多，不容易分辨查看pos点信息，这里介绍一种更为方便的查询命令：
-    ```sql
+
     mysql> show binlog events [IN 'log_name'] [FROM pos] [LIMIT [offset,] row_count];
 
              选项解析：
@@ -101,6 +101,7 @@
 * binlog恢复示例
 ```sql
 恢复binlog日志实验(zyyshop是数据库)
+```
     1.假设现在是凌晨4:00，我的计划任务开始执行一次完整的数据库备份：
 
       将zyyshop数据库备份到 /root/BAK.zyyshop.sql 文件中：
