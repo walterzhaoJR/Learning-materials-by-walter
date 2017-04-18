@@ -11,4 +11,8 @@
   * [2.5 Mysql分表，分区的区别和联系](chapter2_5.md)
   * [2.6 Sql审计](chapter2_6.md)
 * [第三章 编译、库相关知识](chapter3.md)
+* [第四章 ZooKeeper相关](chapter4.md)
+* [第五章 文件系统相关](chapter5.md)
+
+
 
