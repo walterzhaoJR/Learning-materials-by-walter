@@ -1,8 +1,21 @@
 # Summary
 
 * [Introduction](README.md)
+* [第〇章 技术上注意的细节](chapter0.md)
 * [第一章 Liunx相关](chapter1.md)
 * [第二章 数据库](chapter2.md)
- * [2.1 数据库读写分离](chapter2_1.md)
+  * [2.1 数据库读写分离](chapter2_1.md)
+  * [2.2 数据库分表、分库](chapter2_2.md)
+  * [2.3 分布式事务](chapter2_3.md)
+  * [2.4 Binlog](chapter2_4.md)
+  * [2.5 Mysql分表，分区的区别和联系](chapter2_5.md)
+  * [2.6 Sql审计](chapter2_6.md)
+  * [2.7 Mysql分区操作](chapter2_7.md)
+  * [2.8 Mysql分表和分区的区别和联系](chapter2_8.md)
+  * [2.9 Mysql存储过程](chapter2_9.md)
 * [第三章 编译、库相关知识](chapter3.md)
-* [第N章 工作中的感悟](chapter_n.md)
+* [第四章 ZooKeeper相关](chapter4.md)
+* [第五章 文件系统相关](chapter5.md)
+
+
+
