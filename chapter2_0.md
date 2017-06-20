@@ -52,6 +52,8 @@ phone int(12)
 
 
 8.查看数据表中的数据
+select * from <tableName>
+select * from employee
 
 
 
