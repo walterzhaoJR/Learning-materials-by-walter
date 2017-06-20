@@ -15,5 +15,13 @@ show databases;
 ```
 
 3.切换数据库（选择数据库）
+```linux
 语句格式为 CREATE DATABASE <数据库名字>;
 use mysql_walter;
+```
+
+4.显示数据表
+```
+show tables;
+```
+
