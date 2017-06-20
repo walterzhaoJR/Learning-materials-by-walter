@@ -66,6 +66,23 @@ insert into employee(id,name,phone) values(02,'yn',1761234);
 10.注意，在数据插入的时候：
 * 数据类型是 CHAR,VARCHAR,TEXT,DATE,TIME,ENUM 等类型的数据也需要单引号修饰，而 INT,FLOAT,DOUBLE 等则不需要。
 
+11.在插入的时候有些数据可以为空（前提是，这些字段允许为空）：
+```linux
+INSERT INTO employee(id,name) VALUES(03,'Rose');
+```
+上面的这个例子中，查询可得：第三行，phone字段为NULL。
+```linux
++------+------+-----------+
+| id   | name | phone     |
++------+------+-----------+
+|    1 | Tom  | 110110110 |
+|    2 | yn   |   1761234 |
+|    3 | jj   |      NULL |
++------+------+-----------+
+3 rows in set (0.00 sec)
+```
+
+
 
 
 
