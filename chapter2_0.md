@@ -56,6 +56,13 @@ select * from <tableName>;
 select *from employee;
 ```
 
+9.向数据表中插入数据
+```linux
+INSERT INTO 表的名字(列名a,列名b,列名c) VALUES(值1,值2,值3);
+例如：
+insert into employee(id,name,phone) values(02,'yn',1761234);
+```
+
 
 
 
