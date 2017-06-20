@@ -50,12 +50,12 @@ phone int(12)
 * ENUM 类型的数据的值，必须是定义时枚举的值的其中之一，即单选。
 * 而 SET 类型的值则可以多选。
 
-
-8.查看数据表中的数据
+8.查询数据表中的数据
 ```linux
-select * from <tableName>
-select * from employee
+select * from <tableName>;
+select *from employee;
 ```
+
 
 
 
