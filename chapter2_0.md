@@ -53,7 +53,7 @@ phone int(12)
 8.查询数据表中的数据
 ```linux
 select * from <tableName>;
-select *from employee;
+select * from employee;
 ```
 
 9.向数据表中插入数据
@@ -62,6 +62,11 @@ INSERT INTO 表的名字(列名a,列名b,列名c) VALUES(值1,值2,值3);
 例如：
 insert into employee(id,name,phone) values(02,'yn',1761234);
 ```
+
+10.
+* 数据类型是 CHAR 型。此外 VARCHAR,TEXT,DATE,TIME,ENUM 等类型的数据也需要单引号修饰，而 INT,FLOAT,DOUBLE 等则不需要。
+
+
 
 
 
