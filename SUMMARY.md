@@ -14,6 +14,7 @@
   * [2.7 Mysql分区操作](chapter2_7.md)
   * [2.8 Mysql分表和分区的区别和联系](chapter2_8.md)
   * [2.9 Mysql存储过程](chapter2_9.md)
+  * [2.10 约束](chapter2_10.md)
 * [第三章 编译、库相关知识](chapter3.md)
 * [第四章 ZooKeeper相关](chapter4.md)
 * [第五章 文件系统相关](chapter5.md)
