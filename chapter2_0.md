@@ -82,6 +82,12 @@ INSERT INTO employee(id,name) VALUES(03,'Rose');
 3 rows in set (0.00 sec)
 ```
 
+12.删除数据库
+```linux
+drop database <数据库名字>
+drop database mydb;
+```
+
 
 
 
