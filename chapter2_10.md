@@ -24,11 +24,8 @@ create table tb( id int(10) not null, name varchar(10) not null, primary key(nam
 * 默认值约束 (DEFAULT) 规定，当有 DEFAULT 约束的列，插入数据为空时，将使用默认值。
 ```linux
 create table tc ( id int(10) primary key, name varchar(10) default 'testname',phone varchar(10));
-
 insert into tc(id,name,phone) values(1,'walter','12345');
-
 insert into tc(id,phone) values(2,'12354');
-
 mysql> select*from tc;
 +----+----------+-------+
 | id | name     | phone |
@@ -40,5 +37,6 @@ mysql> select*from tc;
 ```
 * 如果设置了默认值约束，在insert数据时，如果插入值，那么将覆盖默认值，如果没有插入，则使用默认值。
 
-###
+###唯一约束
+* 
 
