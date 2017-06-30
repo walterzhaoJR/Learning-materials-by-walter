@@ -42,7 +42,7 @@ mysql> select*from tc;
 * 
 唯一约束 (UNIQUE) 比较简单，它规定一张表中指定的一列的值必须不能有重复值，即这一列每个值都是唯一的
 ```linux
-create table td( id int, phone varchar(11), primary key(id), unique(phone) );
+create table td( id int auto_increment, phone varchar(11), primary key(id), unique(phone) );
 insert into td(id,phone) values(1,'12345');
 insert into td(id,phone) values(2,'12346');
 insert into td(id,phone) values(3,'12346');
@@ -53,6 +53,34 @@ ERROR 1062 (23000): Duplicate entry '12346' for key 'phone'
 * 外键 (FOREIGN KEY) 既能确保数据完整性，也能表现表之间的关系。
 * 一个表可以有多个外键，每个外键必须 REFERENCES (参考) 另一个表的主键，被外键约束的列，取值必须在它参考的列中有对应值。
 * 在 INSERT 时，如果被外键约束的值没有在参考列中有对应则INSERT 失败
+```linux
+1、建立s_user表
+create table s_user(
+       u_id int auto_increment primary key,
+       u_name varchar(15),
+       u_pwd varchar(15),
+       u_truename varchar(20),
+        u_role varchar(6),
+       u_email varchar(30)
+)
+2、
+插入几条数据
+insert into s_user values
+(1,"wangc","aaaaaa","wangchao","buyer","wang@163.com"),      (2,"huangfp","bbbbbb","huangfp","seller","huang@126.com"),      (3,"zhang3","cccccc","zhangsan","buyer","zhang@163.com"),
+(4,"li4","dddddd","lisi","seller","li@1256.com")
+3、
+建立s_orderform表
+create table s_orderform(
+         o_id int auto_increment primary key,
+         o_buyer_id int,
+         o_seller_id int,
+         o_totalprices double,
+         o_state varchar(50),
+         o_information varchar(200),
+         foreign key(o_buyer_id) references s_user(u_id),      #外链到s_user表的u_id字段
+         foreign key(o_seller_id) references s_user(u_id)      #外链到s_user表的u_id字段
+)
+```
 
 ### 非空约束
 * 非空约束 (NOT NULL),听名字就能理解，被非空约束的列，在插入值时必须非空。
