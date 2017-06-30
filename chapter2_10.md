@@ -20,4 +20,22 @@ mysql> create table ta ( id int(10) primary key, name varchar(10) );
 或者
 create table tb( id int(10) not null, name varchar(10) not null, primary key(name));
 ```
+###默认值
+* 默认值约束 (DEFAULT) 规定，当有 DEFAULT 约束的列，插入数据为空时，将使用默认值。
+```linux
+create table tc ( id int(10) primary key, name varchar(10) default 'testname',phone varchar(10));
+
+insert into tc(id,name,phone) values(1,'walter','12345');
+
+insert into tc(id,phone) values(2,'12354');
+
+mysql> select*from tc;
++----+----------+-------+
+| id | name     | phone |
++----+----------+-------+
+|  1 | walter   | 12345 |
+|  2 | testname | 12354 |
++----+----------+-------+
+2 rows in set (0.00 sec)
+```
 
