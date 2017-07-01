@@ -90,6 +90,35 @@ drop database mydb;
 
 13.可以将SQL语句写入*.sql文件中，然后在mysql的控制台中使用source 局对路径/文件名 来执行sql语句。
 
+14.select语句可以使用where来添加查找条件，比如or、and、in、not in等：
+```linux
+smysql> select name,age,phone,in_dpt from employee where in_dpt in('dpt3','dpt4');
++------+------+--------+--------+
+| name | age  | phone  | in_dpt |
++------+------+--------+--------+
+| Tom  |   26 | 119119 | dpt4   |
+| Rose |   22 | 114114 | dpt3   |
+| Rick |   24 | 987654 | dpt3   |
+| Mike |   23 | 110110 | dpt4   |
+| Tony | NULL | 102938 | dpt3   |
++------+------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select name,age,phone,in_dpt from employee where in_dpt not in('dpt3','dpt4');
++------+------+--------+--------+
+| name | age  | phone  | in_dpt |
++------+------+--------+--------+
+| Jack |   24 | 120120 | dpt2   |
+| Jim  |   35 | 100861 | dpt1   |
+| Mary |   21 | 100101 | dpt2   |
+| Alex |   26 | 123456 | dpt1   |
+| Ken  |   27 | 654321 | dpt1   |
+| Joe  |   31 | 110129 | dpt2   |
+| Jobs | NULL |  19283 | dpt2   |
++------+------+--------+--------+
+7 rows in set (0.00 sec)
+```
+
 
 
 
