@@ -88,7 +88,7 @@ drop database <数据库名字>
 drop database mydb;
 ```
 
-
+13.可以将SQL语句写入*.sql文件中，然后在mysql的控制台中使用source 局对路径/文件名 来执行sql语句。
 
 
 
