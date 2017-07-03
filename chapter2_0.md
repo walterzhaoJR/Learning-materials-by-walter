@@ -131,7 +131,7 @@ ALTER TABLE 原名 RENAME TO 新名;
 drop table <table_name>
 ```
 3.对一列的修改(即对表结构的修改)
-* 增加一列
+* 3.1增加一列
 ```linux
 ALTER TABLE 表名字 ADD COLUMN 列名字 数据类型 约束;
 或： ALTER TABLE 表名字 ADD 列名字 数据类型 约束;
@@ -192,7 +192,7 @@ mysql> desc table_1;
 7 rows in set (0.00 sec)
 ```
 
-* 删除表中的一列和刚才使用的新增一列的语句格式十分相似，只是把关键词 ADD 改为 DROP ，语句后面不需要有数据类型、约束或位置信息。具体语句格式：
+* 3.2删除表中的一列和刚才使用的新增一列的语句格式十分相似，只是把关键词 ADD 改为 DROP ，语句后面不需要有数据类型、约束或位置信息。具体语句格式：
 ```linux
 mysql> alter table table_1 drop l_0;
 Query OK, 0 rows affected (0.04 sec)
@@ -211,13 +211,37 @@ mysql> desc table_1;
 6 rows in set (0.00 sec)
 ```
 
-* 重命名一列：这条语句其实不只可用于重命名一列，准确地说，它是对一个列做修改(CHANGE) 
+* 3.3重命名一列：这条语句其实不只可用于重命名一列，准确地说，它是对一个列做修改(CHANGE) 
 * 注意：这条重命名语句后面的 “数据类型” 不能省略，否则重命名失败。
 当原列名和新列名相同的时候，指定新的数据类型或约束，就可以用于修改数据类型或约束。需要注意的是，修改数据类型可能会导致数据丢失，所以要慎重使用。
 ```linux
 ALTER TABLE 表名字 CHANGE 原列名 新列名 数据类型 约束;
 mysql> alter table table_1 change l_7 l_5 int(10) not null default 10;
 ```
+
+* 3.4改变数据类型，要修改一列的数据类型，除了使用刚才的CHANGE语句外，还可以用这样的MODIFY语句
+* 再次提醒，修改数据类型必须小心，因为这可能会导致数据丢失。在尝试修改数据类型之前，请慎重考虑。
+```linux
+ALTER TABLE 表名字 MODIFY 列名字 新数据类型;
+mysql> alter table table_1 modify l_5 int(2);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> desc table_1;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| l_1   | int(10) | NO   | PRI | NULL    |       |
+| l_6   | int(20) | NO   |     | NULL    |       |
+| l_2   | int(10) | YES  |     | NULL    |       |
+| l_3   | int(10) | YES  |     | NULL    |       |
+| l_4   | int(10) | NO   |     | NULL    |       |
+| l_5   | int(2)  | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+```
+
+4.对表的内容修改
+
 
 
 
