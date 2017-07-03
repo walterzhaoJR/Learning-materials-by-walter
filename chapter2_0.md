@@ -119,6 +119,130 @@ mysql> select name,age,phone,in_dpt from employee where in_dpt not in('dpt3','dp
 7 rows in set (0.00 sec)
 ```
 
+##数据库及表的修改和删
+1.重命名一张表
+```linux
+RENAME TABLE 原名 TO 新名字;
+ALTER TABLE 原名 RENAME 新名;
+ALTER TABLE 原名 RENAME TO 新名;
+```
+2.删除一张表
+```linux
+drop table <table_name>
+```
+3.对一列的修改(即对表结构的修改)
+* 3.1增加一列
+```linux
+ALTER TABLE 表名字 ADD COLUMN 列名字 数据类型 约束;
+或： ALTER TABLE 表名字 ADD 列名字 数据类型 约束;
+mysql> alter table table_1 add column l_4 int(10) not null;
+或者:
+mysql> alter table table_1 add l_5 int(10) default 0;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> desc table_1;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| l_1   | int(10) | NO   | PRI | NULL    |       |
+| l_2   | int(10) | YES  |     | NULL    |       |
+| l_3   | int(10) | YES  |     | NULL    |       |
+| l_4   | int(10) | NO   |     | NULL    |       |
+| l_5   | int(10) | YES  |     | 0       |       |
++-------+---------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+```
+
+* 可以发现：新增加的列，被默认放置在这张表的最右边。如果要把增加的列插入在指定位置，则需要在语句的最后使用AFTER关键词(“AFTER 列1” 表示新增的列被放置在 “列1” 的后面)。
+```linux
+mysql> alter table table_1 add l_6 int(20) not null after l_1;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> desc table_1;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| l_1   | int(10) | NO   | PRI | NULL    |       |
+| l_6   | int(20) | NO   |     | NULL    |       |
+| l_2   | int(10) | YES  |     | NULL    |       |
+| l_3   | int(10) | YES  |     | NULL    |       |
+| l_4   | int(10) | NO   |     | NULL    |       |
+| l_5   | int(10) | YES  |     | 0       |       |
++-------+---------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+```
+
+* 如果想放在第一列的位置，则使用 FIRST 关键词，如语句：
+```linux
+mysql> alter table table_1 add l_0 int(10) not null first;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> desc table_1;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| l_0   | int(10) | NO   |     | NULL    |       |
+| l_1   | int(10) | NO   | PRI | NULL    |       |
+| l_6   | int(20) | NO   |     | NULL    |       |
+| l_2   | int(10) | YES  |     | NULL    |       |
+| l_3   | int(10) | YES  |     | NULL    |       |
+| l_4   | int(10) | NO   |     | NULL    |       |
+| l_5   | int(10) | YES  |     | 0       |       |
++-------+---------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+```
+
+* 3.2删除表中的一列和刚才使用的新增一列的语句格式十分相似，只是把关键词 ADD 改为 DROP ，语句后面不需要有数据类型、约束或位置信息。具体语句格式：
+```linux
+mysql> alter table table_1 drop l_0;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> desc table_1;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| l_1   | int(10) | NO   | PRI | NULL    |       |
+| l_6   | int(20) | NO   |     | NULL    |       |
+| l_2   | int(10) | YES  |     | NULL    |       |
+| l_3   | int(10) | YES  |     | NULL    |       |
+| l_4   | int(10) | NO   |     | NULL    |       |
+| l_5   | int(10) | YES  |     | 0       |       |
++-------+---------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+```
+
+* 3.3重命名一列：这条语句其实不只可用于重命名一列，准确地说，它是对一个列做修改(CHANGE) 
+* 注意：这条重命名语句后面的 “数据类型” 不能省略，否则重命名失败。
+当原列名和新列名相同的时候，指定新的数据类型或约束，就可以用于修改数据类型或约束。需要注意的是，修改数据类型可能会导致数据丢失，所以要慎重使用。
+```linux
+ALTER TABLE 表名字 CHANGE 原列名 新列名 数据类型 约束;
+mysql> alter table table_1 change l_7 l_5 int(10) not null default 10;
+```
+
+* 3.4改变数据类型，要修改一列的数据类型，除了使用刚才的CHANGE语句外，还可以用这样的MODIFY语句
+* 再次提醒，修改数据类型必须小心，因为这可能会导致数据丢失。在尝试修改数据类型之前，请慎重考虑。
+```linux
+ALTER TABLE 表名字 MODIFY 列名字 新数据类型;
+mysql> alter table table_1 modify l_5 int(2);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> desc table_1;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| l_1   | int(10) | NO   | PRI | NULL    |       |
+| l_6   | int(20) | NO   |     | NULL    |       |
+| l_2   | int(10) | YES  |     | NULL    |       |
+| l_3   | int(10) | YES  |     | NULL    |       |
+| l_4   | int(10) | NO   |     | NULL    |       |
+| l_5   | int(2)  | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+```
+
+4.对表的内容修改
+
+
 
 
 
