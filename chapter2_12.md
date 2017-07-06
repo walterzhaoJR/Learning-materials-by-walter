@@ -54,10 +54,22 @@ mysql> select*from v_emp;
 
 ##2.导入
 * 导入操作，可以把一个文件里的数据保存进一张表。
+```一些总体的操作方式：
+LOAD DATA [LOW_PRIORITY] [LOCAL] INFILE 'file_name.txt' [REPLACE | IGNORE]
+    INTO TABLE tbl_name
+    [FIELDS
+        [TERMINATED BY '\t']
+        [OPTIONALLY] ENCLOSED BY '']
+        [ESCAPED BY '\\' ]]
+    [LINES TERMINATED BY '\n']
+    [IGNORE number LINES]
+    [(col_name,...)]
+```
+
 ```linux
 LOAD DATA INFILE '文件路径' INTO TABLE 表名字;
 需要导入的数据按照什么字符结尾：
-load data infile '文件路径' into table 表名字 terminated '结尾的字符'
+load data infile '文件路径' into table 表名字 fields terminated by '结尾的字符'
 ```
 * 导入的时候一般会出现如下问题：
 ```linux
