@@ -48,6 +48,10 @@ mysql> select name,age,salary,phone from employee order by salary desc;
 +------+------+--------+--------+
 12 rows in set (0.00 sec)
 ```
+* 在排序的时候，desc只对它之前的列产生影响：
+```linux
+select name,age,phone from eployee order by name,age desc;
+其中只会对age进行降序排列，不会对name产生影响。
 
 ##SQL内置函数和计算
 * SQL 允许对表中的数据进行计算。对此，SQL 有 5 个内置函数，这些函数都对 SELECT 的结果做操作：
@@ -104,6 +108,43 @@ FROM employee JOIN department
 ON employee.in_dpt = department.dpt_name
 ORDER BY id;
 ```
+## 其他一些操作
+###1.查询的时候重复的结果只显示一次：
+```linux
+select distinct <字段> from <table_name>
+```
+###2.对于NULL的比较操作，应为NULL是特殊值，所以不能使用!=NULL来计较，要使用 is not NULL 来比较。
+* 请注意在MySQL中，0或NULL意味着假而其它值意味着真。布尔运算的默认真值是1。
+* 为了查询出哪个动物不再是活着的，使用death IS NOT NULL而不使用death != NULL的原因。
+* 在GROUP BY中，两个NULL值被视为相同等价的。
+* 执行ORDER BY语句排序时，如果运行ORDER BY ... ASC，则NULL值出现在最前面，若运行ORDER BY ... DESC，则NULL值出现在最后面。
+* NULL操作的常见错误是认为不能在定义为NOT NULL的列内插入0或空字符串，但事实并非如此。这样的结果是在NULL表示"没有数值"的时候恰恰是有数值0存在的。因此使用IS [NOT] NULL则可以很容易地进行区分
+
+###3.mysql中也可以使用正则表达式，使用的时候要使用的关键字是：REGEXP和NOT REGEXP操作符(或RLIKE和NOT RLIKE，它们是同义词)。
+* 如果REGEXP模式与被测试值的任何地方匹配，模式就匹配(这不同于LIKE模式匹配，只有与整个值匹配，模式才匹配)。 为了定位一个模式以便它必须匹配被测试值的开始或结尾，在模式开始处使用“^”或在模式的结尾用“$”。
+* 一些正则表达式的规则：
+    * ‘.’匹配任何单个的字符。
+    * 字符类“[...]”匹配在方括号内的任何字符。例如，“[abc]”匹配“a”、“b”或“c”。为了命名字符的范围，使用一个“-”。“[a-z]”匹配任何字母，而“[0-9]”匹配任何数字。
+    * “ ”匹配零个或多个在它前面的字符。例如，“x”匹配任何数量的“x”字符，“[0-9]”匹配任何数量的数字，而“.”匹配任何数量的任何字符。
+* 一些例子：
+```linux
+为了找出以“b”开头的名字，使用“^”匹配名字的开始：
+select * from pet where name regexp '^b';
+如果你想强制使REGEXP比较区分大小写，使用BINARY关键字使其中一个字符串变为二进制字符串。该查询只匹配名称首字母的小写‘b’。
+select * from pet where name binary regexp '^b';
+为了找出以“fy”结尾的名字，使用“$”匹配名字的结尾：
+select * from pet where name regexp 'ly$';
+为了找出包含一个“w”的名字，使用以下查询：
+select * from pet where name regexp 'w';
+为了找出包含正好5个字符的名字，使用“^”和“$”匹配名字的开始和结尾，和5个“.”实例在两者之间：
+select * from pet where name regexp '^.....$';
+你也可以使用“{n}”重复n次操作符,重写前面的查询：
+select * from pet where name regexp '^.{5}$';
+```
+
+
+
+
 
 
 
