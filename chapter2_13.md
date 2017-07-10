@@ -41,4 +41,11 @@ alter_specification:
   | CHECK PARTITION partition_names
   | OPTIMIZE PARTITION partition_names
   | REBUILD PARTITION partition_names
-  | REPAIR PARTITION partition_names```
+  | REPAIR PARTITION partition_names
+```
+
+#举例子
+* 修改一个表的引擎
+```linux
+alter table t1 engine = InnoDB;
+```

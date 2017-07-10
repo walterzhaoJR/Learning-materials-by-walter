@@ -18,11 +18,11 @@
   * [2.11 SELECT语句](chapter2_11.md)
   * [2.12 视图，索引，备份,数据导入](chapter2_12.md)
   * [2.13 alter详解](chapter2_13.md)
+  * [2.14 事物](chapter2_14.md)
 * [第三章 编译、库相关知识](chapter3.md)
 * [第四章 ZooKeeper相关](chapter4.md)
 * [第五章 文件系统相关](chapter5.md)
 * [第六章 github及git](chapter6.md)
 * [第X章 其他](chapterx.md)
   * [x.0 Vim](chapterx_0.md)
-  
 
