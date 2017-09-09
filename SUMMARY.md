@@ -25,6 +25,7 @@
 * [第五章 文件系统相关](chapter5.md)
 * [第六章 github及git](chapter6.md)
   * [6.1 Git基本操作](chapter6_1.md)
+  * [6.2 Git分支操作](chapter6_2.md)
 * [第X章 其他](chapterx.md)
   * [x.0 Vim](chapterx_0.md)
 
