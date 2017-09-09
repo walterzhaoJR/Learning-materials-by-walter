@@ -20,9 +20,11 @@
   * [2.13 alter详解](chapter2_13.md)
   * [2.14 事物](chapter2_14.md)
 * [第三章 编译、库相关知识](chapter3.md)
+  * [3.1 CMAKE相关](chapter3_1.md)
 * [第四章 ZooKeeper相关](chapter4.md)
 * [第五章 文件系统相关](chapter5.md)
 * [第六章 github及git](chapter6.md)
+  * [6.1 Git基本操作](chapter6_1.md)
 * [第X章 其他](chapterx.md)
   * [x.0 Vim](chapterx_0.md)
 
