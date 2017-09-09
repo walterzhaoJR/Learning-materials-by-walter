@@ -16,4 +16,9 @@ git checkout - branch_name
 git merge branch_name
 ```
 
+##删除分支
+```linux
+git branch -d branch_name
+```
+
 
