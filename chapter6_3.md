@@ -8,4 +8,4 @@
 * 如果知识通过rm 删除了文件，那么提交的时候就要采用 git commit -am "messgae". 
 * rm; git commit -am "message" 就是等同于 git rm;git commit -m "message"
 
-* 所以推荐使用 git rm ;
+* 所以推荐使用 git rm ; git commit -m "message"
