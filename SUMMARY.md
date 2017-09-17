@@ -26,6 +26,7 @@
 * [第六章 github及git](chapter6.md)
   * [6.1 Git基本操作](chapter6_1.md)
   * [6.2 Git分支操作](chapter6_2.md)
+  * [6.3 Git rm & rm](chapter6_3.md)
 * [第X章 其他](chapterx.md)
   * [x.0 Vim](chapterx_0.md)
 
