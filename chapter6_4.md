@@ -4,5 +4,4 @@
 
 ```linux
 mkdir test;
-
 ```
