@@ -41,4 +41,4 @@
 
 * 第二个与MyISAM索引的不同是InnoDB的辅助索引data域存储相应记录主键的值而不是地址。换句话说，InnoDB的所有辅助索引都引用主键作为data域。例如，下图1为定义在Col3上的一个辅助索引：
 
-![innodb的辅助索引](http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/11.png)
+![innode的辅助索引](http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/11.png)
