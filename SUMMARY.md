@@ -31,6 +31,7 @@
   * [6.4 Git clone 一个仓库的过程](chapter6_4.md)
 * [第七章 读书笔记](chapter7.md)
 * [第八章 OS](chapter8.md)
+  * [8.1 OS的页](chapter8_1.md)
 * [第X章 其他](chapterx.md)
   * [x.0 Vim](chapterx_0.md)
 
