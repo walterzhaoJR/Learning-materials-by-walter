@@ -12,7 +12,7 @@
 ![双向链表](https://segmentfault.com/img/bVJ1hF?w=884&h=284)
 
 ###1.3主体数据
-* 在Page的主体部分，主要关注数据和索引的存储，他们都位于User Records部分，User Records占据Page的大部分空间，User Records由一条条的Record组成，每条记录代表索引树上的一个节点（非叶子节点和叶子节点）；在一个单链表的内部，单链表的头尾由两条记录来表示，字符串形式的“ Infimum”代表开头，“Supremum”表示结尾；System Record 和 User Record是两个平行的段；
+* 在Page的主体部分，主要关注数据和索引的存储，他们都位于User Records(records 是 记录 的意思)部分，User Records占据Page的大部分空间，User Records由一条条的Record组成，每条记录代表索引树上的一个节点（非叶子节点和叶子节点）；在一个单链表的内部，单链表的头尾由两条记录来表示，字符串形式的“ Infimum”代表开头，“Supremum”表示结尾；System Record 和 User Record是两个平行的段；
 Innodb中存在四种不同的Record，分别是
 
     * 主键索引树非叶子节点
@@ -23,4 +23,9 @@ Innodb中存在四种不同的Record，分别是
 
     * 辅助键索引树叶子节点
 
-* 这四种节点Record格式上有差异，但是内部都存储着Next指针指向下一个Record
+* 这四种节点Record格式上有差异，但是内部都存储着Next指针指向下一个Record，如图：
+![records](https://segmentfault.com/img/bVJ1hK?w=426&h=1092)
+
+####1.3.1User Record
+* User Record在Page内以单链表的形式存在，最初数据是按照插入的先后顺序排列的，但是随着新数据的插入和旧数据的删除，数据物理顺序发生改变，但是他们依然保持着逻辑上的先后顺序
+![user records](https://segmentfault.com/img/bVJ1hN?w=542&h=738)
