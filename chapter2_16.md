@@ -29,3 +29,10 @@ Innodb中存在四种不同的Record，分别是
 ####1.3.1User Record
 * User Record在Page内以单链表的形式存在，最初数据是按照插入的先后顺序排列的，但是随着新数据的插入和旧数据的删除，数据物理顺序发生改变，但是他们依然保持着逻辑上的先后顺序
 ![user records](https://segmentfault.com/img/bVJ1hN?w=542&h=738)
+* 把User Record组织形式和若干Page组织起来，就得到了稍微完整的形式：
+![组织](https://segmentfault.com/img/bVJ1hP?w=1136&h=278)
+
+####1.3.2如何定位一个Record：
+* 通过根节点开始遍历一个索引的B+树，通过各层非叶子节点达到底层的叶子节点的数据页（Page），这个Page内部存放的都是叶子节点
+
+* 在Page内部从“Infimum”节点开始遍历单链表（遍历一般会被优化），如果找到键则返回。如果遍历到了“Supremum”，说明当前Page里没有合适的键，这时借助Page页内部的next page指针，跳转到下一个page继续从“Infmum”开始逐个查找
