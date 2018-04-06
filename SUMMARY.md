@@ -18,7 +18,7 @@
   * [2.11 SELECT语句](chapter2_11.md)
   * [2.12 视图，索引，备份,数据导入](chapter2_12.md)
   * [2.13 alter详解](chapter2_13.md)
-  * [2.14 事物](chapter2_14.md)
+  * [2.14 事务](chapter2_14.md)
   * [2.15 MySQL索引背后的数据结构及算法原理](chapter2_15.md)
   * [2.16 数据库中的页](chapter2_16.md)
 * [第三章 编译、库相关知识](chapter3.md)
