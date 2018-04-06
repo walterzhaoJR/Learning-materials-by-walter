@@ -62,3 +62,13 @@ Innodb中存在四种不同的Record，分别是
         * 辅助索引键值，是B+树必须的
 
         * 主键值，用来在主索引树里在做一次B+树检索来找到整条记录
+        
+![图](https://segmentfault.com/img/bVJ1hZ?w=1346&h=974)
+
+##2.整体的查找过程
+![过程](https://segmentfault.com/img/bVJ1h2?w=1348&h=1164)
+
+###2.1简介的树形查找示意图
+![图](https://segmentfault.com/img/bVJ1hk?w=766&h=330)
+
+* Page和B+树之间并没有一一对应的关系，Page只是作为一个Record的保存容器，它存在的目的是便于对磁盘空间进行批量管理。
