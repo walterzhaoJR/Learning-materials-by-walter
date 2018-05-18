@@ -35,6 +35,7 @@
 * [第八章 OS](chapter8.md)
   * [8.1 OS的页](chapter8_1.md)
 * [第九章 MySQL 技术内幕 InnoDB 存储引擎](chapter9.md)
+  * [9.1 MySQL体系结构和存储引擎](chapter9_1.md)
 * [第X章 其他](chapterx.md)
   * [x.0 Vim](chapterx_0.md)
 
