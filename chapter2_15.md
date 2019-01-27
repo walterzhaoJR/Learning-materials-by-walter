@@ -84,9 +84,17 @@
 
 ## 2019.1.27
 
-* 阅读博客 \[史上最全的select加锁分析\]\(https://www.colabug.com/5241072.html?from=timeline&isappinstalled=0\)
+### 阅读博客 \[史上最全的select加锁分析\]\(https://www.colabug.com/5241072.html?from=timeline&isappinstalled=0\)
 
-* 
+#### 要记住的3句话
+* innodb一定有聚簇索引（主键）
+* 有几个索引就有几个B+索引树
+* 聚簇索引的叶子节点是真实的数据，非聚簇索引的叶子节点索引，指向聚簇索引B+树
+
+#### innodb的几个常用加锁逻辑
+* record lock
+  * 翻译为行锁：是对索引加锁，不是行。innodb一定有聚簇索引，因此行锁最后全是落在聚簇索引上。
+  * gap lock：间隙锁。
 
 
 
