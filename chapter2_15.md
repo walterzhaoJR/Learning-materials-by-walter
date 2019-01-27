@@ -95,8 +95,14 @@
 * record lock
   * 翻译为行锁：是对索引加锁，不是行。innodb一定有聚簇索引，因此行锁最后全是落在聚簇索引上。
   * gap lock：间隙锁。目的是防止其他事物插入数据。要注意的是repeatable read和serializable 这两个隔离界别才有间隙锁，uc和rc没有。
-  * next-key locks：可以理解为record lock + 索引前面的next-key lock。锁住的是索引前面的间隙。
-
+  * next-key locks：可以理解为record lock + 索引前面的next-key lock。锁住的是索引前面的间隙。比如一个索引包含值，10，11，13和20。那么，间隙锁的范围如下
+```linux
+(negative infinity, 10]
+(10, 11]
+(11, 13]
+(13, 20]
+(20, positive infinity)
+```
 
 
 
