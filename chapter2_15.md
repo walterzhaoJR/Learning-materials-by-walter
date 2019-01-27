@@ -91,7 +91,7 @@
 * 有几个索引就有几个B+索引树
 * 聚簇索引的叶子节点是真实的数据，非聚簇索引的叶子节点索引，指向聚簇索引B+树(所以select id from table_name where id = 1 要比 select * form table_name where id = 1的性能好很多，因为前置只要找到非聚簇索引就好，后者还要去聚簇索引里边找其他值)
 
-#### innodb的几个常用加锁逻辑
+#### innodb的几个常用行锁逻辑
 * record lock
   * 翻译为行锁：是对索引加锁，不是行。innodb一定有聚簇索引，因此行锁最后全是落在聚簇索引上。
   * gap lock：间隙锁。目的是防止其他事物插入数据。要注意的是repeatable read和serializable 这两个隔离界别才有间隙锁，uc和rc没有。
