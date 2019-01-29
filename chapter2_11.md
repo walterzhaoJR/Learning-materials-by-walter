@@ -143,7 +143,13 @@ select * from pet where name regexp '^.{5}$';
 ```
 
 
-
+------------------------------------------------------------------
+2019.1.29
+#### mysql 中 select 分为快照读和当前读
+* select * from table_name where id = ? 这种是读取的数据库的快照版本，不加锁
+* 下面是两种加锁的情况
+    * select * from table_name where id = ? lock in share mode 这个加的是共享锁（S锁）
+    * select * from table_name where id = ? for update 这个加的是怕他锁（X锁）
 
 
 
