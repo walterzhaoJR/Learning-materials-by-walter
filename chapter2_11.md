@@ -151,7 +151,8 @@ select * from pet where name regexp '^.{5}$';
     * select * from table_name where id = ? lock in share mode 这个会对读记录加共享锁（S锁）
     * select * from table_name where id = ? for update 这个会对读记录加怕他锁（X锁）
 
-* serializable 会在select 语句后面自动加 lock in share mode
+* serializable 隔离级别会在select 语句后面自动加 lock in share mode
+
 
 
 
